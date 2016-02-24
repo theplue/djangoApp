@@ -1,0 +1,37 @@
+from django.db import models
+from django.forms import ModelChoiceField, ChoiceField
+
+class Student(models.Model):
+	first_name = models.CharField(max_length=30)
+	last_name = models.CharField(max_length=35)
+	year = models.IntegerField()
+
+class Professor(models.Model):
+	first_name = models.CharField(max_length=30)
+	last_name = models.CharField(max_length=35)
+	department = models.TextField()
+	office = models.TextField()
+
+	def __unicode__(self):
+		return self.first_name + " " + self.last_name
+
+class Course(models.Model):
+	name = models.CharField(max_length=200)
+	number = models.IntegerField()
+	department = models.TextField()
+
+	def __unicode__(self):
+		return self.name
+
+class Section(models.Model):
+	number = models.IntegerField()
+	location = models.CharField(max_length=200)
+	course = models.ForeignKey(Course)
+	professor = models.ForeignKey(Professor)
+
+
+		
+
+		
+
+		
