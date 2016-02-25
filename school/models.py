@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms import ModelChoiceField, ChoiceField
 
 class Student(models.Model):
 	first_name = models.CharField(max_length=30)
