@@ -5,7 +5,9 @@ from school import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^item/(?P<id>\d+)/', views.item_detail, name='item_detail'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^student/index', views.index, name='student'),
+    url(r'^professor/index', views.professor, name= 'professor'),
+    url(r'^student/(?P<id>\d+)/', views.student_detail, name='student_detail'),
+    url(r'^professor/(?P<id>\d+)/', views.professor_detail, name='professor_detail'),
 ]
