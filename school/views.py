@@ -3,8 +3,6 @@ from django.http import Http404
 
 from school.models import Student
 
-
-
 def index(request):
 	studentlist = Student.objects.all()
 	context = { 'student_List': studentlist }
