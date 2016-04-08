@@ -48,7 +48,17 @@
 			<li><a href="{% url 'course' %}">Course</a></li>
 		</ul>
 
-		<h1>College Registration</h1>
+		{% if courseList %}
+			<ul>
+			{% for course in courseList %}
+		        <li><a href="{% url 'course_detail' course.id %}">{{course}}</a></li>
+		    {% endfor %}
+			</ul>
+		{% else %}
+			<p> No courses to display. </p>
+		{% endif %}
     	{% endblock content %}
     </body>
 </html>
+
+
