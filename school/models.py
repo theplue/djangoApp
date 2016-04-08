@@ -5,6 +5,9 @@ class Student(models.Model):
 	last_name = models.CharField(max_length=35)
 	year = models.IntegerField()
 
+	def __unicode__(self):
+		return self.first_name + " " + self.last_name
+
 class Professor(models.Model):
 	first_name = models.CharField(max_length=30)
 	last_name = models.CharField(max_length=35)
