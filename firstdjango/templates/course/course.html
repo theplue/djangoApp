@@ -5,7 +5,7 @@
         <title>College Project</title>
         <meta name="description" content="">
         <style>
-			ul {
+			.nav {
 			    list-style-type: none;
 			    margin: 0;
 			    padding: 0;
@@ -13,16 +13,16 @@
 			    background-color: #333;
 			}
 
-			li {
+			.navLi {
 			    float: left;
 			    border-right:1px solid #bbb;
 			}
 
-			li:last-child {
+			.navLi:last-child {
 			    border-right: none;
 			}
 
-			li a {
+			.navLi a {
 			    display: block;
 			    color: white;
 			    text-align: center;
@@ -30,7 +30,7 @@
 			    text-decoration: none;
 			}
 
-			li a:hover:not(.active) {
+			.navLi a:hover:not(.active) {
 			    background-color: #111;
 			}
 
@@ -41,11 +41,11 @@
     </head>
     <body>
     	{% block content %}
-    	<ul>
-    		<li><a href="{% url 'index' %">Home</a></li>
-			<li><a href="{% url 'student' %}">Student</a></li>
-			<li><a href="{% url 'professor' %}">Professor</a></li>
-			<li><a href="{% url 'course' %}">Course</a></li>
+    	<ul class="nav">
+    		<li class="navLi"><a href="{% url 'index' %}" >Home</a></li>
+			<li class="navLi"><a href="{% url 'student' %}" >Student</a></li>
+			<li class="navLi"><a href="{% url 'professor' %}">Professor</a></li>
+			<li class="navLi"><a href="{% url 'course' %}" class="active">Course</a></li>
 		</ul>
 
 		{% if courseList %}

@@ -1,9 +1,64 @@
-{% if student_List %}
-	<ul>
-	{% for student in student_List %}
-        <li><a href="{% url 'student_detail' student.id %}">{{student}}</a></li>
-    {% endfor %}
-	</ul>
-{% else %}
-	<p> No students to display. </p>
-{% endif %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>College Project</title>
+        <meta name="description" content="">
+        <style>
+			.nav {
+			    list-style-type: none;
+			    margin: 0;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: #333;
+			}
+
+			.navLi {
+			    float: left;
+			    border-right:1px solid #bbb;
+			}
+
+			.navLi:last-child {
+			    border-right: none;
+			}
+
+			.navLi a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+
+			.navLi a:hover:not(.active) {
+			    background-color: #111;
+			}
+
+			.active {
+			    background-color: #4CAF50;
+			}
+		</style>
+    </head>
+    <body>
+    	{% block content %}
+    	<ul class="nav">
+    		<li class="navLi"><a href="{% url 'index' %}" >Home</a></li>
+			<li class="navLi"><a href="{% url 'student' %}" class="active">Student</a></li>
+			<li class="navLi"><a href="{% url 'professor' %}">Professor</a></li>
+			<li class="navLi"><a href="{% url 'course' %}">Course</a></li>
+		</ul>
+
+		{% if student_List %}
+			<ul>
+				{% for student in student_List %}
+		        	<li><a href="{% url 'student_detail' student.id %}">{{student}}</a></li>
+		    	{% endfor %}
+			</ul>
+		{% else %}
+			<p> No students to display. </p>
+		{% endif %}
+    	{% endblock content %}
+    </body>
+</html>
+
+
