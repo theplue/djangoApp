@@ -1,9 +1,14 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
+
 from django.http import Http404
 
 from school.models import Student
 from school.models import Professor
 from school.models import Course
+
+from school.forms import StudentForm
+
 
 def index(request):
 	return render(request, 'base.html' )
@@ -51,6 +56,16 @@ def course_detail(request, id):
 	return render(request, 'course/course_detail.html', {
 		'course': course,
 	})
+
+def new_student(request):
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            student = StudentForm.save(form)
+            return redirect('student')
+    else:
+        form = StudentForm()
+    return render(request, 'student/student_form.html', {'form': form})
 
 
 

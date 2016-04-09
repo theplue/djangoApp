@@ -1,0 +1,9 @@
+<form method="POST"> {% csrf_token %}
+    <label for="first_name">First name: </label>
+    <input id="first_name" type="text" name="first_name" value="{{ first_name }}"></input>
+    <label for="last_name">Last name:</label>
+    <input id="last_name" type="text" name="last_name" value="{{last_name}}"></input>
+    <label for="year">Year:</label>
+    <input id="year" type="number" name="year" value="{{year}}"></input>
+    <input type="submit" value="OK"></input>
+</form>
