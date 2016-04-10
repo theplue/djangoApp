@@ -1,0 +1,18 @@
+<a href="{% url 'index' %}">Back</a>
+<br />
+<br />
+<form method="POST"> {% csrf_token %}
+    <label for="name">Course name: </label>
+    <input id="name" type="text" name="name" value="{{ name }}"></input>
+    <br/>
+    <br />
+    <label for="number">Number:</label>
+    <input id="number" type="number" name="number" value="{{number}}"></input>
+    <br />
+    <br />
+    <label for="department">Department:</label>
+    <input id="department" type="text" name="department" value="{{department}}"></input>
+    <br/>
+    <br />
+    <input type="submit" value="OK"></input>
+</form>

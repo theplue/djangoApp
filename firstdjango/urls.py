@@ -11,7 +11,8 @@ urlpatterns = [
     url(r'^student/(?P<id>\d+)/', views.student_detail, name='student_detail'),
     url(r'^professor/(?P<id>\d+)/', views.professor_detail, name='professor_detail'),
     url(r'^course/index', views.course, name='course'),
-    url(r'^course/(?P<id>\d+)/', views.course_detail, name='course_detail'),
-   
+    url(r'^course/(?P<id>\d+)/', views.course_detail, name='course_detail'),  
     url(r'^student/new/$', views.new_student, name='new_student'),
+    url(r'^professor/new/$', views.new_professor, name='new_professor'),
+    url(r'^course/new/$', views.new_course, name='new_course'),
 ]

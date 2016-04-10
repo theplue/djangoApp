@@ -8,6 +8,8 @@ from school.models import Professor
 from school.models import Course
 
 from school.forms import StudentForm
+from school.forms import ProfessorForm
+from school.forms import CourseForm
 
 
 def index(request):
@@ -67,5 +69,23 @@ def new_student(request):
         form = StudentForm()
     return render(request, 'student/student_form.html', {'form': form})
 
+def new_professor(request):
+    if request.method == "POST":
+        form = ProfessorForm(request.POST)
+        if form.is_valid():
+            professor = ProfessorForm.save(form)
+            return redirect('professor')
+    else:
+        form = ProfessorForm()
+    return render(request, 'professor/professor_form.html', {'form': form})
 
+def new_course(request):
+    if request.method == "POST":
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            course = CourseForm.save(form)
+            return redirect('course')
+    else:
+        form = ProfessorForm()
+    return render(request, 'course/course_form.html', {'form': form})
 
