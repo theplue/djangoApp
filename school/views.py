@@ -3,13 +3,14 @@ from django.shortcuts import redirect
 
 from django.http import Http404
 
-from school.models import Student
+from school.models import Student, Section
 from school.models import Professor
 from school.models import Course
 
 from school.forms import StudentForm
 from school.forms import ProfessorForm
-from school.forms import CourseForm
+from school.forms import CourseForm, SectionForm
+
 
 
 def index(request):
@@ -89,3 +90,12 @@ def new_course(request):
         form = ProfessorForm()
     return render(request, 'course/course_form.html', {'form': form})
 
+def new_section(request):
+    if request.method == "POST":
+        form = SectionForm(request.POST)
+        if form.is_valid():
+            section = SectionForm.save(form)
+            return redirect('index')
+    else:
+        form = SectionForm()
+    return render(request, 'section/section_form.html', {'form': form})

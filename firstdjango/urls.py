@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^student/new/$', views.new_student, name='new_student'),
     url(r'^professor/new/$', views.new_professor, name='new_professor'),
     url(r'^course/new/$', views.new_course, name='new_course'),
+    url(r'^section/new/$', views.new_section, name='new_section'),
 ]

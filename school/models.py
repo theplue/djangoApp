@@ -29,11 +29,4 @@ class Section(models.Model):
 	number = models.IntegerField()
 	location = models.CharField(max_length=200)
 	course = models.ForeignKey(Course)
-	professor = models.ForeignKey(Professor)
-
-
-		
-
-		
-
-		
+	professor = models.ForeignKey(Professor)		

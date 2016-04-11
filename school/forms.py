@@ -1,9 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from school.models import Student
-from school.models import Professor
-from school.models import Course
+from school.models import Student, Professor, Course, Section
 
 class StudentForm(ModelForm):
 	class Meta:
@@ -19,3 +17,8 @@ class CourseForm(ModelForm):
 	class Meta:
 		model = Course
 		fields = ['name', 'number', 'department']
+
+class SectionForm(ModelForm):
+	class Meta:
+		model = Section
+		fields = ['number', 'location', 'course', 'professor']
