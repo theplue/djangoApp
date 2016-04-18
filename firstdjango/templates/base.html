@@ -49,19 +49,19 @@
 		</ul>
 
 		<h1>College Registration</h1>
-		<form action="student/new/" method="POST">{% csrf_token %}
+		<form action="student/new/" method="get">{% csrf_token %}
 			<input type="submit" class="btn" value="Add New Student" name="mybtn">
 		</form>
 		<br />
-		<form action="professor/new/" method="POST">{% csrf_token %}
+		<form action="professor/new/" method="get">{% csrf_token %}
 			<input type="submit" class="btn" value="Add New Professor" name="mybtn">
 		</form>
 		<br />
-		<form action="course/new/" method="POST">{% csrf_token %}
+		<form action="course/new/" method="get">{% csrf_token %}
 			<input type="submit" class="btn" value="Add New Course" name="mybtn">
 		</form>
 		<br />
-		<form action="section/new/" method="POST">{% csrf_token %}
+		<form action="section/new/" method="get">{% csrf_token %}
 			<input type="submit" class="btn" value="Add New Section" name="mybtn">
 		</form>
     	{% endblock content %}
